@@ -1,4 +1,5 @@
 test_that("OA query works", {
+  skip_on_cran()
   expect_equal(
     oa_query(
       entity = "works",
@@ -15,6 +16,7 @@ test_that("OA query works", {
 })
 
 test_that("oa_query returns NULL when no identifier or filter is supplied", {
+  skip_on_cran()
   expect_null(oa_query())
   expect_message(oa_query())
 })

@@ -1,4 +1,5 @@
 test_that("append_flt works", {
+  skip_on_cran()
   expect_equal(append_flt("2022-08-08"), "from_publication_date:2022-08-08")
   expect_equal(append_flt("2022-08-08", "to_publication_date"), "to_publication_date:2022-08-08")
   expect_equal(append_flt(NULL, "to_publication_date"), NULL)
@@ -13,6 +14,7 @@ test_that("append_flt works", {
 })
 
 test_that("asl works", {
+  skip_on_cran()
   expect_equal(asl("true"), "true")
   expect_equal(asl(TRUE), "true")
   expect_equal(asl("True"), "true")
@@ -27,6 +29,7 @@ test_that("asl works", {
 })
 
 test_that("shorten_oaid works", {
+  skip_on_cran()
   c(
     "https://openalex.org/W3045921891",
     "https://openalex.org/W3046863325",

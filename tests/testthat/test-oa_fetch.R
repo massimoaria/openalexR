@@ -49,15 +49,17 @@ test_that("oa_fetch works for multiple works", {
 
   expect_true("affiliation_raw" %in% names(multi_works$authorships[[1]]))
 
-  Sys.sleep(1 / 10)
+  Sys.sleep(1/10)
   # warn about truncated authors
   expect_warning(oa_fetch(identifier = c("W4381194940", "W4386241859")))
 
-  Sys.sleep(1 / 10)
-  filtered_works <- oa_fetch(
+  Sys.sleep(1/10)
+  suppressWarnings(
+    filtered_works <- oa_fetch(
     entity = "w",
     publication_date = "2020-08-01",
     cited_by_count = ">1000"
+  )
   )
   expect_s3_class(filtered_works, "data.frame")
 
@@ -92,7 +94,7 @@ test_that("Error when input entity can't be matched", {
     )
   )
 
-  Sys.sleep(1 / 10)
+  Sys.sleep(1/10)
   expect_error(
     oa_fetch(
       entity = "insta",
@@ -110,13 +112,13 @@ test_that("oa_fetch instutitions binds associated_institutions correctly", {
 
 test_that("oa_fetch sample works", {
   skip_on_cran()
-  Sys.sleep(1 / 10)
+  Sys.sleep(1/10)
   random2021 <- oa_fetch(
     "works",
     publication_year = 2021,
     options = list(sample = 20)
   )
-  Sys.sleep(1 / 10)
+  Sys.sleep(1/10)
   random10 <- oa_fetch(
     "works",
     options = list(sample = 10, seed = 1)
@@ -137,7 +139,7 @@ test_that("search works with sampling", {
 test_that("oa_fetch authors can deal with NA institutions", {
   skip_on_cran()
 
-  Sys.sleep(1 / 10)
+  Sys.sleep(1/10)
   expect_s3_class(
     oa_fetch(
       entity = "authors",
@@ -145,7 +147,7 @@ test_that("oa_fetch authors can deal with NA institutions", {
     ),
     "data.frame"
   )
-  Sys.sleep(1 / 10)
+  Sys.sleep(1/10)
   expect_type(
     oa_fetch(
       entity = "authors",

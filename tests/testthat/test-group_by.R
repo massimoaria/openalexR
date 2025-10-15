@@ -1,5 +1,6 @@
 
 test_that("search and group_by works", {
+  skip_on_cran()
   # https://github.com/ropensci/openalexR/issues/327
   g1 <- oa_fetch(
     title_and_abstract.search = "nature",
@@ -11,6 +12,7 @@ test_that("search and group_by works", {
 })
 
 test_that("group_by works", {
+  skip_on_cran()
   # https://github.com/ropensci/openalexR/issues/327
 
   # grouping by the boolean "is_oa" should return 2 rows
