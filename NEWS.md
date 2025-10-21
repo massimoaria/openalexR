@@ -1,3 +1,5 @@
+# openalexR (development version)
+
 # openalexR 2.0.2
 * Fixed HTTP status 429 on CRAN
 
